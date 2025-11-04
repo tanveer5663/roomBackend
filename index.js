@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 
 
@@ -13,6 +14,7 @@ import connectDB from "./db.js";
 
 const app = express();
  await connectDB();
+app.use(cors());
 
 // Middleware to parse JSON
 app.use(express.json());
