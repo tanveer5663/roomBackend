@@ -1,7 +1,7 @@
 import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import cors from "cors";
+
+
+
 
 import authRoutes from "./routes/authRoutes.js";
 import protectedRoutes from "./routes/protectedRoutes.js";
@@ -22,6 +22,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api", protectedRoutes);
 app.use("/api/properties", propertyRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.get("/", (req, res) => {
+  res.send("API running 🚀");
+});
 
 const PORT = process.env.PORT || 5000;
 // const MONGO =
