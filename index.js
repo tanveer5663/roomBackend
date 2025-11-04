@@ -12,7 +12,7 @@ import connectDB from "./db.js";
 dotenv.config();
 
 const app = express();
-connectDB();
+await connectDB();
 
 // Middleware to parse JSON
 app.use(express.json());
