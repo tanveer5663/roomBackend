@@ -7,12 +7,12 @@ import authRoutes from "./routes/authRoutes.js";
 import protectedRoutes from "./routes/protectedRoutes.js";
 import propertyRoutes from "./routes/Propertyroutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
-import connectDB from "./db.js";
+// import connectDB from "./db.js";
 
 dotenv.config();
 
 const app = express();
-await connectDB();
+// await connectDB();
 
 // Middleware to parse JSON
 app.use(express.json());
