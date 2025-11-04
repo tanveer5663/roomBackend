@@ -7,7 +7,7 @@ import authRoutes from "./Routes/authRoutes.js";
 import protectedRoutes from "./Routes/protectedRoutes.js";
 import propertyRoutes from "./Routes/Propertyroutes.js";
 import bookingRoutes from "./Routes/bookingRoutes.js";
-// import connectDB from "./db.js";
+import connectDB from "./db.js";
 
 
 
