@@ -3,16 +3,16 @@ import express from "express";
 
 
 
-import authRoutes from "./routes/authRoutes.js";
-import protectedRoutes from "./routes/protectedRoutes.js";
-import propertyRoutes from "./routes/Propertyroutes.js";
-import bookingRoutes from "./routes/bookingRoutes.js";
+import authRoutes from "./Routes/authRoutes.js";
+import protectedRoutes from "./Routes/protectedRoutes.js";
+import propertyRoutes from "./Routes/Propertyroutes.js";
+import bookingRoutes from "./Routes/bookingRoutes.js";
 // import connectDB from "./db.js";
 
 dotenv.config();
 
 const app = express();
-// await connectDB();
+ await connectDB();
 
 // Middleware to parse JSON
 app.use(express.json());
