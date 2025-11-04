@@ -9,7 +9,7 @@ import propertyRoutes from "./Routes/Propertyroutes.js";
 import bookingRoutes from "./Routes/bookingRoutes.js";
 // import connectDB from "./db.js";
 
-dotenv.config();
+
 
 const app = express();
  await connectDB();
