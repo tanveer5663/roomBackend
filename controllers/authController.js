@@ -7,7 +7,7 @@ import User from '../Models/User.js';
 
 const generateToken = (user) => {
   const payload = { id: user._id, role: user.role, email: user.email };
-  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN || '7d' });
+  return jwt.sign(payload, "avaedefe@#$##", { expiresIn: process.env.JWT_EXPIRES_IN || '7d' });
 };
 
 export const register = async (req, res) => {
