@@ -25,6 +25,18 @@ router.get("/details/:id", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+router.get("/", async (req, res) => {
+  const properties = await Property.find();
+  res.json(properties);
+});
+router.get("/type/:type", async (req, res) => {
+  const properties = await Property.find({ type: req.params.type });
+  res.json(properties);
+});
+router.get("/details/:id", async (req, res) => {
+  const property = await Property.findById(req.params.id);
+  res.json(property);
+});
 
 router.put("/book/:id", async (req, res) => {
   try {
@@ -39,7 +51,44 @@ router.put("/book/:id", async (req, res) => {
     res.status(500).json({ message: "Booking failed" });
   }
 });
+router.post("/add", async (req, res) => {
+  try {
+    const {
+      name,
+      location,
+      rent,
+      image,
+      type,
+      owner,    // owner name
+      ownerId   // owner id (from frontend)
+    } = req.body;
 
+    const newProperty = new Property({
+      name,
+      location,
+      rent,
+      image,
+      type,
+      owner,
+      ownerId
+    });
+
+    await newProperty.save();
+    res.status(201).json({ message: "Property added successfully!", property: newProperty });
+  } catch (err) {
+    console.error("Failed to add property:", err);
+    res.status(500).json({ message: "Failed to add property" });
+  }
+});
+router.get("/owner/:ownerId", async (req, res) => {
+  try {
+    const properties = await Property.find({ ownerId: req.params.ownerId })
+      .populate("bookedBy", "name email"); // 👈 Include student info
+    res.json(properties);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching properties" });
+  }
+});
 
 // Add sample properties (temporary route for testing)
 router.post("/add-sample", async (req, res) => {
