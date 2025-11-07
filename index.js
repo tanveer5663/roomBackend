@@ -1,19 +1,14 @@
 import express from "express";
 import cors from "cors";
 
-
-
-
 import authRoutes from "./Routes/authRoutes.js";
 import protectedRoutes from "./Routes/protectedRoutes.js";
 import propertyRoutes from "./Routes/Propertyroutes.js";
 import bookingRoutes from "./Routes/bookingRoutes.js";
 import connectDB from "./db.js";
 
-
-
 const app = express();
- await connectDB();
+await connectDB();
 app.use(cors());
 
 // Middleware to parse JSON
@@ -29,6 +24,8 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 // const MONGO =
 //   process.env.MONGO_URI ||
 //   "mongodb+srv://yadavbhavesh:12345@rooms.xeajzyr.mongodb.net/Rooms-Data?retryWrites=true&w=majority&appName=Rooms";

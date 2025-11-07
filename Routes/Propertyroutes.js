@@ -83,7 +83,7 @@ router.post("/add", async (req, res) => {
 router.get("/owner/:ownerId", async (req, res) => {
   try {
     const properties = await Property.find({ ownerId: req.params.ownerId })
-      .populate("bookedBy", "name email"); // 👈 Include student info
+      .populate("bookedBy", "name email number"); // 👈 Include student info
     res.json(properties);
   } catch (err) {
     res.status(500).json({ message: "Error fetching properties" });

@@ -6,7 +6,7 @@ const bookingSchema = new mongoose.Schema({
     ref: "Property",
     required: true,
   },
-  studentId: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
